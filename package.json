@@ -1,0 +1,39 @@
+{
+  "name": "nest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "export NODE_ENV=dev && dotenv -e .env.dev -- prisma migrate dev && prisma generate && nest start --watch",
+    "start:prod": "export NODE_ENV=prod && dotenv -e .env.prod -- prisma migrate deploy && prisma generate && npm -s run build && node dist/app",
+    "build": "nest build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nestjs/cli": "^10.0.0",
+    "@nestjs/schematics": "^10.0.0",
+    "@nestjs/testing": "^10.0.0",
+    "@types/cors": "^2.8.5",
+    "@types/node": "^20.14.5",
+    "dotenv-cli": "^7.4.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/jwt": "^10.1.1",
+    "@nestjs/platform-express": "^10.3.9",
+    "@nestjs/serve-static": "^4.0.0",
+    "@nestjs/swagger": "^7.1.13",
+    "@prisma/client": "^5.15.1",
+    "@types/jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5",
+    "cross-fetch": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.15.1"
+  }
+}
