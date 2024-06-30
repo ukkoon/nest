@@ -5,7 +5,6 @@ import { join } from 'path';
 import { AuthController } from 'src/auth/auth.controller';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
 import { AuthModule } from 'src/auth/auth.module';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import '../config';
