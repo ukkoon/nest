@@ -6,7 +6,10 @@
   "scripts": {
     "start:dev": "export NODE_ENV=dev && dotenv -e .env.dev -- prisma migrate dev && prisma generate && nest start --watch",
     "start:prod": "export NODE_ENV=prod && dotenv -e .env.prod -- prisma migrate deploy && prisma generate && npm -s run build && node dist/app",
-    "build": "nest build"
+    "build": "nest build",
+
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +22,12 @@
     "@types/node": "^20.14.5",
     "dotenv-cli": "^7.4.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",

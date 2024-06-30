@@ -1,14 +1,5 @@
-import {
-  Controller,
-  Get,
-  Query,
-  UseFilters
-} from '@nestjs/common';
-import {
-  ApiCreatedResponse,
-  ApiOperation,
-  ApiTags
-} from '@nestjs/swagger';
+import { Controller, Get, Query, UseFilters } from '@nestjs/common';
+import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AllExceptionFilter } from 'src/others/exception_filter';
 import { AppService } from './app.service';
 import {
@@ -22,9 +13,7 @@ import {
 @Controller('/')
 @UseFilters(AllExceptionFilter)
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-  ) { }
+  constructor(private readonly appService: AppService) {}
 
   @ApiOperation({
     summary: 'status check path',

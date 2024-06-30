@@ -1,13 +1,6 @@
-import {
-  HttpException,
-  HttpStatus,
-  Injectable,
-  Query
-} from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Query } from '@nestjs/common';
 import { fetch } from 'cross-fetch';
-import {
-  invalidGeocodeParamsError
-} from 'src/others/custom_errors';
+import { invalidGeocodeParamsError } from 'src/others/custom_errors';
 
 import 'src/config';
 import {
@@ -39,7 +32,6 @@ export class AppService {
       );
 
       const responseJson = await response.json();
-
 
       if (responseJson.status == 'OK' && responseJson.meta.totalCount > 0) {
         const latitude = responseJson.addresses[0].y;

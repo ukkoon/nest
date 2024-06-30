@@ -81,5 +81,5 @@ export const virtualNumberNotAlignedError: CustomError = {
 
 export const positionsFullError: CustomError = {
   message: '여석이 없습니다.',
-  code: 4015
-}
+  code: 4015,
+};
