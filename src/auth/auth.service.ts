@@ -7,7 +7,7 @@ import {
   invalidPhoneNumError,
   invalidTokenError,
   notRegisteredError,
-  tokenExpiredError
+  tokenExpiredError,
 } from 'src/others/custom_errors';
 import { isValidPhoneNum } from 'src/util';
 import {
@@ -31,9 +31,7 @@ import { VerifyAuthCodeRequestDto } from './dtos/verify_auth_code_dto';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private readonly jwtService: JwtService
-  ) { }
+  constructor(private readonly jwtService: JwtService) {}
 
   async sendAuthCode(params: SendAuthCodeRequestDto): Promise<string> {
     if (!isValidPhoneNum(params.phoneNum)) {
@@ -41,14 +39,14 @@ export class AuthService {
     }
 
     /**
-    * 인증번호 할당
-    */
+     * 인증번호 할당
+     */
     // let authcode = generateAuthcode(args.phonenum)
 
-    let authCode = "123456";
+    const authCode = '123456';
     /**
-              * 실제 인증번호 발송
-              */
+     * 실제 인증번호 발송
+     */
     // var contents = `휴대폰인증 인증번호는 [${authcode}]입니다.`
     // await ctx.popbill.sendSms({ text: contents, to: args.phonenum })
 
@@ -97,7 +95,6 @@ export class AuthService {
   async refreshAccessToken(
     params: RefreshAccessTokenRequestDto,
   ): Promise<RefreshAccessTokenResponseDto> {
-
     const isValidAccount = true;
     let refreshTokenPayload: AllowedPayload;
 

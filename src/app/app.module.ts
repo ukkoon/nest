@@ -3,12 +3,12 @@ import { JwtModule } from '@nestjs/jwt';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { AuthController } from 'src/auth/auth.controller';
-import { AuthService } from '../auth/auth.service';
-import { PrismaService } from '../prisma.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import '../config'
+import { AuthModule } from 'src/auth/auth.module';
+import { PrismaModule } from 'src/prisma/prisma.module';
+import '../config';
 
 @Module({
   imports: [
@@ -19,15 +19,10 @@ import '../config'
       rootPath: join(__dirname, '..', '../public'),
       serveRoot: '/public/', //last slash was important
     }),
+    PrismaModule,
+    AuthModule,
   ],
-  controllers: [
-    AppController,
-    AuthController,
-  ],
-  providers: [
-    AppService,
-    PrismaService,
-    AuthService,
-  ],
+  controllers: [AppController, AuthController],
+  providers: [AppService],
 })
 export class AppModule {}
